@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 //        binding.categoryListView.adapter = adapter
         val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(this)
         binding.categoryRecycleViewList.layoutManager
-//        customAdapter = CustomAdapter(category)
+        customAdapter = CustomAdapter(this,DataService.categories)
+        binding.categoryRecycleViewList.adapter = customAdapter
     }
 }

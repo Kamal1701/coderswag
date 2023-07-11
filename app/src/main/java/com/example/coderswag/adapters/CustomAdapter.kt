@@ -1,31 +1,49 @@
 package com.example.coderswag.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coderswag.databinding.CategoryListItemBinding
 import com.example.coderswag.models.Category
 
-class CustomAdapter(val catList : List<Category>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
+class CustomAdapter(context: Context, catList: List<Category>) :
+    RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    inner class ViewHolder(val binding:CategoryListItemBinding) : RecyclerView.ViewHolder(binding.root)
+    val context = context
+    val category = catList
+
+    inner class ViewHolder(val binding: CategoryListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        var categoryImage: ImageView = binding.categoryImage
+        var categoryName: TextView = binding.categoryName
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = CategoryListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            CategoryListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return  catList.size
+        return category.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        with(holder){
-            with(catList[position]){
-                binding.categoryName.text = this.title
+        with(holder) {
+            with(category[position]) {
+                categoryName.text = category[position].title
+                val resourceId = context.resources.getIdentifier(
+                    category[position].image,
+                    "drawable",
+                    context.packageName
+                )
+                categoryImage.setImageResource(resourceId)
+                println(resourceId)
             }
         }
     }
-
-
 }
