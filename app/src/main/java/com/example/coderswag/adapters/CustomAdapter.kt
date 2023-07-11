@@ -10,13 +10,13 @@ import com.example.coderswag.databinding.CategoryListConstraintItemBinding
 import com.example.coderswag.databinding.CategoryListItemBinding
 import com.example.coderswag.models.Category
 
-class CustomAdapter(context: Context, catList: List<Category>) :
+class CustomAdapter(context: Context, catList: List<Category>, val itemClick : (Category)->Unit) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     val context = context
     val category = catList
 
-    inner class ViewHolder(val binding: CategoryListConstraintItemBinding) :
+    inner class ViewHolder(val binding: CategoryListConstraintItemBinding, val itemClick: (Category) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         var categoryImage: ImageView = binding.categoryImage
         var categoryName: TextView = binding.categoryName
@@ -29,6 +29,13 @@ class CustomAdapter(context: Context, catList: List<Category>) :
             )
             categoryImage.setImageResource(resourceId)
             categoryName.text = category.title
+            binding.categoryImage.setOnClickListener {
+                itemClick(category)
+            }
+            binding.categoryName.setOnClickListener {
+                itemClick(category)
+            }
+
         }
     }
 
@@ -36,7 +43,7 @@ class CustomAdapter(context: Context, catList: List<Category>) :
         val binding =
             CategoryListConstraintItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         println("heavy computing")
-        return ViewHolder(binding)
+        return ViewHolder(binding, itemClick)
     }
 
     override fun getItemCount(): Int {
