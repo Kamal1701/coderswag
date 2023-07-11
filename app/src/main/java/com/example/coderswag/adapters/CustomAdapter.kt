@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coderswag.databinding.CategoryListConstraintItemBinding
 import com.example.coderswag.databinding.CategoryListItemBinding
 import com.example.coderswag.models.Category
 
@@ -15,7 +16,7 @@ class CustomAdapter(context: Context, catList: List<Category>) :
     val context = context
     val category = catList
 
-    inner class ViewHolder(val binding: CategoryListItemBinding) :
+    inner class ViewHolder(val binding: CategoryListConstraintItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var categoryImage: ImageView = binding.categoryImage
         var categoryName: TextView = binding.categoryName
@@ -23,7 +24,7 @@ class CustomAdapter(context: Context, catList: List<Category>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            CategoryListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            CategoryListConstraintItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return ViewHolder(binding)
     }
