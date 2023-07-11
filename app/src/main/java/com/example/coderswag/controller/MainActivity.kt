@@ -31,5 +31,6 @@ class MainActivity : AppCompatActivity() {
         binding.categoryRecycleViewList.layoutManager
         customAdapter = CustomAdapter(this,DataService.categories)
         binding.categoryRecycleViewList.adapter = customAdapter
+        binding.categoryRecycleViewList.setHasFixedSize(true)
     }
 }

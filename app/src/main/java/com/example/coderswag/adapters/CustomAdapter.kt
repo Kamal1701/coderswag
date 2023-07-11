@@ -20,6 +20,16 @@ class CustomAdapter(context: Context, catList: List<Category>) :
         RecyclerView.ViewHolder(binding.root) {
         var categoryImage: ImageView = binding.categoryImage
         var categoryName: TextView = binding.categoryName
+
+        fun bindCategory(context: Context, category: Category){
+            val resourceId = context.resources.getIdentifier(
+                category.image,
+                "drawable",
+                context.packageName
+            )
+            categoryImage.setImageResource(resourceId)
+            categoryName.text = category.title
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,18 +44,19 @@ class CustomAdapter(context: Context, catList: List<Category>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        with(holder) {
-            with(category[position]) {
-                categoryName.text = category[position].title
-                val resourceId = context.resources.getIdentifier(
-                    category[position].image,
-                    "drawable",
-                    context.packageName
-                )
-                categoryImage.setImageResource(resourceId)
-
-                println(resourceId)
-            }
-        }
+//        with(holder) {
+//            with(category[position]) {
+//                categoryName.text = category[position].title
+//                val resourceId = context.resources.getIdentifier(
+//                    category[position].image,
+//                    "drawable",
+//                    context.packageName
+//                )
+//                categoryImage.setImageResource(resourceId)
+//
+//                println(resourceId)
+//            }
+//        }
+        holder.bindCategory(context,category[position])
     }
 }
