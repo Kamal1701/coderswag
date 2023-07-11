@@ -25,7 +25,7 @@ class CustomAdapter(context: Context, catList: List<Category>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             CategoryListConstraintItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
+        println("heavy computing")
         return ViewHolder(binding)
     }
 
@@ -43,6 +43,7 @@ class CustomAdapter(context: Context, catList: List<Category>) :
                     context.packageName
                 )
                 categoryImage.setImageResource(resourceId)
+
                 println(resourceId)
             }
         }
