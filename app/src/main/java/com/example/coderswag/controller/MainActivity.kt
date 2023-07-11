@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 //        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, DataService.categories)
 //        binding.categoryListView.adapter = adapter
-        val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(this)
-        binding.categoryRecycleViewList.layoutManager
+        val linearLayoutManager : RecyclerView.LayoutManager = LinearLayoutManager(this)
+        binding.categoryRecycleViewList.layoutManager = linearLayoutManager
         customAdapter = CustomAdapter(this,DataService.categories){ category ->
             val productIntent = Intent(this, ProductsActivity:: class.java)
             productIntent.putExtra(EXTRA_CATEGORY, category.title)
