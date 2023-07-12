@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.coderswag.databinding.ProductListViewBinding
 import com.example.coderswag.models.Product
 
-class ProductAdapter(val context: Context, val productList: List<Product>) :
+class ProductAdapter(val context: Context, val productList: List<Product>, val prodItemClick : (Product) -> Unit) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
-    inner class ProductViewHolder(binding: ProductListViewBinding) :
+    inner class ProductViewHolder(binding: ProductListViewBinding, val prodItemClick : (Product) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         var productImage = binding.productImage
         val productName = binding.productText
@@ -26,14 +26,22 @@ class ProductAdapter(val context: Context, val productList: List<Product>) :
             productName.text = product.title
             productPrice.text = product.price
 
+            productImage.setOnClickListener {
+                prodItemClick(product)
+            }
+            productName.setOnClickListener {
+                prodItemClick(product)
+            }
+            productPrice.setOnClickListener {
+                prodItemClick(product)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding =
             ProductListViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ProductViewHolder(binding)
-
+        return ProductViewHolder(binding, prodItemClick)
     }
 
     override fun getItemCount(): Int {
