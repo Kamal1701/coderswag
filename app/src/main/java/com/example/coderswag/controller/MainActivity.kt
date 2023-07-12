@@ -3,14 +3,10 @@ package com.example.coderswag.controller
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coderswag.R
 import com.example.coderswag.adapters.CustomAdapter
 import com.example.coderswag.databinding.ActivityMainBinding
-import com.example.coderswag.models.Category
 import com.example.coderswag.services.DataService
 import com.example.coderswag.utilities.EXTRA_CATEGORY
 

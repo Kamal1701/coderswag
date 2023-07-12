@@ -8,8 +8,7 @@ class Product(val title: String?, val price: String?, val image: String?) : Parc
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)

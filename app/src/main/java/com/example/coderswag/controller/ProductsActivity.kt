@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.coderswag.R
 import com.example.coderswag.adapters.ProductAdapter
 import com.example.coderswag.databinding.ActivityProductsBinding
 import com.example.coderswag.services.DataService

@@ -2,8 +2,6 @@ package com.example.coderswag.controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import com.example.coderswag.R
 import com.example.coderswag.databinding.ActivityProductDetailBinding
 import com.example.coderswag.models.Product
 import com.example.coderswag.utilities.EXTRA_PRODUCT

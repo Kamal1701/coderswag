@@ -7,14 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coderswag.databinding.CategoryListConstraintItemBinding
-import com.example.coderswag.databinding.CategoryListItemBinding
 import com.example.coderswag.models.Category
 
-class CustomAdapter(context: Context, catList: List<Category>, val itemClick : (Category)->Unit) :
+class CustomAdapter(val context: Context, val catList: List<Category>, val itemClick : (Category)->Unit) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    val context = context
-    val category = catList
+//    val context = context
+//    val category = catList
 
     inner class ViewHolder(val binding: CategoryListConstraintItemBinding, val itemClick: (Category) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
@@ -47,7 +46,7 @@ class CustomAdapter(context: Context, catList: List<Category>, val itemClick : (
     }
 
     override fun getItemCount(): Int {
-        return category.size
+        return catList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -64,6 +63,6 @@ class CustomAdapter(context: Context, catList: List<Category>, val itemClick : (
 //                println(resourceId)
 //            }
 //        }
-        holder.bindCategory(context,category[position])
+        holder.bindCategory(context,catList[position])
     }
 }

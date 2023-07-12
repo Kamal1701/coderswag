@@ -11,21 +11,21 @@ object DataService {
         Category("DIGITIAL", "digitalgoodsimage")
     )
 
-    val hats = listOf(
+    private val hats = listOf(
         Product("Devslopes Graphic Beanie", "$18.00", "hat1"),
         Product("Devslopes Hat Black", "$20.00", "hat2"),
         Product("Devslopes Hat White", "$18.00", "hat3"),
         Product("Devslopes Hat Snapback", "$22.00", "hat4")
     )
 
-    val hoodies = listOf(
+    private val hoodies = listOf(
         Product("Devslopes Hoodie Gray", "$28.00", "hoodie1"),
         Product("Devslopes Hoodie Red", "$3200", "hoodie2"),
         Product("Devslopes Gray Hoodie", "$18.00", "hoodie3"),
         Product("Devslopes Black Hoodie", "$32.00", "hoodie4")
     )
 
-    val shirts = listOf(
+    private val shirts = listOf(
         Product("Devslopes Shirt Black", "$18.00", "shirt1"),
         Product("Devslopes Badge Light Gray", "$20.00", "shirt2"),
         Product("Devslopes Logo Shirt Red", "$22.00", "shirt3"),
@@ -33,7 +33,7 @@ object DataService {
         Product("Kickflip Studios", "$18.00", "shirt5")
     )
 
-    val digitalGoods = listOf<Product>()
+    private val digitalGoods = listOf<Product>()
 
     fun getProducts(category: String):List<Product>{
 
